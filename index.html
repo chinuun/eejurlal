@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="mn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ээж Урлал | Гар урлалын дэлгүүр</title>
+    <style>
+        :root {
+            --primary: #d9531e;
+            --primary-hover: #b83e0f;
+            --secondary: #f39c12;
+            --messenger: #0084ff;
+            --bg-dark: #12100e;
+            --bg-card: #1c1815;
+            --text-light: #f5f0eb;
+            --text-muted: #a89f91;
+            --border: #332a24;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        header {
+            background-color: rgba(28, 24, 21, 0.95);
+            padding: 15px 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .logo {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        nav {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 70px 20px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            color: var(--secondary);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: var(--text-muted);
+            max-width: 600px;
+            margin: 0 auto 25px;
+        }
+
+        .btn-primary {
+            background-color: var(--primary);
+            color: white;
+            padding: 12px 28px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .btn-fb {
+            background-color: var(--messenger);
+            color: white;
+            padding: 10px 20px;
+            font-size: 15px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: opacity 0.3s;
+            width: 100%;
+            justify-content: center;
+        }
+
+        .btn-fb:hover {
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 28px;
+            color: var(--secondary);
+            margin-bottom: 30px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 25px;
+        }
+
+        .product-card {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 250px;
+            object-fit: contain;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            background-color: #2b231d;
+        }
+
+        .product-img-box {
+            width: 100%;
+            height: 200px;
+            background-color: #2b231d;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            margin-bottom: 15px;
+        }
+
+        .product-title {
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .product-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 15px;
+        }
+
+        .product-bottom {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .price {
+            font-size: 22px;
+            font-weight: bold;
+            color: var(--secondary);
+        }
+
+        .custom-section {
+            background-color: var(--bg-card);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            margin-top: 60px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            color: var(--text-muted);
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 10px;
+            background-color: var(--bg-dark);
+            border: 1px solid var(--border);
+            color: white;
+            border-radius: 6px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background-color: var(--bg-card);
+            border-top: 1px solid var(--border);
+            color: var(--text-muted);
+            margin-top: 60px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="logo">🧶 Ээж Урлал Shop</div>
+        <nav>
+            <a href="#products">Бүтээгдэхүүн</a>
+            <a href="#custom">Захиалга</a>
+        </nav>
+    </header>
+
+    <!-- Hero -->
+    <section class="hero">
+        <h1> Нэхмэл Малгай  Цэцэг Бойтог</h1>
+        <p>100% гараар нэхсэн, зөөлөн дулаан өндөр чанартай ноосон бүтээгдэхүүнүүд.</p>
+        <a href="#products" class="btn-primary">Бараа үзэх</a>
+    </section>
+
+    <!-- Products Grid -->
+    <div class="container" id="products">
+        <h2 class="section-title">Манай Бүтээгдэхүүнүүд</h2>
+
+        <div class="products-grid">
+            
+            <!-- Item 1 -->
+            <div class="product-card">
+                <div>
+                    <img src="janjin.jpg" alt=" Жанжин Малгай" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>🧶</div>'">
+                    <h3 class="product-title"> 4 талт жанжин малгай </h3>
+                    <p class="product-desc"> ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮45,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('4 талт жанжин малгай', '₮45,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 2 -->
+            <div class="product-card">
+                <div>
+                    <img src="tsetseg.jpg" alt="Малгай Болон Ороолт" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>🧣</div>'">
+                    <h3 class="product-title">Малгай Болон Ороолт</h3>
+                    <p class="product-desc">ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮35,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('Судалт Алаг', '₮35,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+            </div>
+
+            <!-- Item 3 -->
+            <div class="product-card">
+                <div>
+                    <img src="shar shuvuu.jpg" alt="Хүүхдийн Малгай" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>👶</div>'">
+                    <h3 class="product-title">ХүүхдийнШар Шувуу Малгай</h3>
+                    <p class="product-desc">ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮45,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('Хүүхдийн Шар Шувуу Малгай', '₮45,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+ </div>
+
+            <!-- Item 4 -->
+            <div class="product-card">
+                <div>
+                    <img src="muur.jpg" alt=" Муур Малгай" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>👶</div>'">
+                    <h3 class="product-title">Мууран Малгай</h3>
+                    <p class="product-desc">ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮35,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('Мууран Малгай', '₮35,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+            </div>
+ </div>
+
+            <!-- Item 5 -->
+            <div class="product-card">
+                <div>
+                    <img src="louz.jpg" alt=" Лоузан Малгай" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>👶</div>'">
+                    <h3 class="product-title">Лоузан Малгай</h3>
+                    <p class="product-desc">ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮45,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('Мууран Малгай', '₮45,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+ </div>
+
+            <!-- Item 6 -->
+            <div class="product-card">
+                <div>
+                    <img src="shiree.jpg" alt="Ширээний Цэцэг" class="product-img" onerror="this.outerHTML='<div class=\'product-img-box\'>👶</div>'">
+                    <h3 class="product-title">Ширээний Цэцэг</h3>
+                    <p class="product-desc">ӨНГӨ СОНГОЖ БОЛНО.</p>
+                </div>
+                <div class="product-bottom">
+                    <div class="price-row">
+                        <span class="price">₮45,000</span>
+                    </div>
+                    <button class="btn-fb" onclick="orderViaFB('Ширээний Цэцэ', '₮45,000')">
+                        💬 FB чатаар захиалах
+                    </button>
+                </div>
+
+        </div>
+
+        <!-- Working Custom Order Form -->
+        <div class="custom-section" id="custom">
+            <h2 class="section-title">Тусгай Захиалга Өгөх</h2>
+            <p style="text-align: center; color: var(--text-muted); margin-bottom: 25px;">
+                Та өөрийн хүссэн хэмжээ, өнгө, загвараар захиалах боломжтой.
+            </p>
+
+            <form onsubmit="submitCustomFB(event)">
+                <div class="form-group">
+                    <label>Таны нэр:</label>
+                    <input type="text" id="cust-name" placeholder="Овгоо, нэрээ бичнэ үү" required>
+                </div>
+                <div class="form-group">
+                    <label>Утасны дугаар:</label>
+                    <input type="tel" id="cust-phone" placeholder="Жишээ: 99112233" required>
+                </div>
+                <div class="form-group">
+                    <label>Захиалах төрөл:</label>
+                    <select id="cust-type">
+                        <option>Том хүний малгай</option>ы
+                        <option>Хүүхдийн малгай</option>
+                        <option>Ороолт</option>
+                        <option> Бойтог</option>
+                        <option> Цэцэг </option>
+                        <option> 4талт Жанжин Малгай</option> 
+
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Нэмэлт тайлбар (ӨнгӨ):</label>
+                    <textarea id="cust-details" rows="4" placeholder="Хүссэн өнгөө бичээрэй..."></textarea>
+                </div>
+                <button type="submit" class="btn-fb" style="width: 100%; font-size: 16px; padding: 12px;">
+                    💬 FB-ээр захиалга илгээх
+                </button>
+<div class="form-group">
+    <label>Зургийн линк (Хэрэв байгаа бол):</label>
+    <input type="url" id="cust-img-url" placeholder="https://imgur.com/... эсвэл зургийн линк">
+</div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p> © 2020 Ээж гар урлалын дэлгүүр</p>
+    </footer>
+
+    <script>
+        // Set to your mom's actual FB Page username
+        const FB_PAGE_USERNAME = "eejurlal"; 
+
+        // Direct Item Order via FB Messenger
+        function orderViaFB(itemName, itemPrice) {
+            const message = `Сайн байна уу? Би "${itemName}" (${itemPrice}) худалдаж авъя.`;
+            const fbUrl = `https://m.me/${FB_PAGE_USERNAME}?text=${encodeURIComponent(message)}`;
+            window.open(fbUrl, '_blank');
+        }
+
+        // Custom Order Form via FB Messenger
+        function submitCustomFB(event) {
+            event.preventDefault();
+            const name = document.getElementById('cust-name').value;
+            const phone = document.getElementById('cust-phone').value;
+            const type = document.getElementById('cust-type').value;
+            const details = document.getElementById('cust-details').value;
+
+            const message = `Захиалга:\n- Нэр: ${name}\n- Утас: ${phone}\n- Төрөл: ${type}\n- Тайлбар: ${details}`;
+            const fbUrl = `https://m.me/${FB_PAGE_USERNAME}?text=${encodeURIComponent(message)}`;
+            window.open(fbUrl, '_blank');
+        }
+
+
+    </script>
+</body>
+</html>
